@@ -23,8 +23,8 @@ def activation_email(request, email, user):
         'token':activation_token,
     })
     ActivationToken.objects.update_or_create(owner=user,defaults={'activation_token': activation_token, 'expiry_at': expiry_at})
-    # to_email = email
-    to_email = 'pathak.achal5@gmail.com'
+    to_email = email
+    # to_email = 'pathak.achal5@gmail.com'
     email = EmailMessage(
                 mail_subject, message, to=[to_email]
     )
@@ -44,8 +44,8 @@ def password_reset_email(request, email, user):
         'token':reset_token,
     })
     PasswordResetToken.objects.update_or_create(owner=user,defaults={'reset_token': reset_token, 'expiry_at': expiry_at})
-    # to_email = email
-    to_email = 'pathak.achal5@gmail.com'
+    to_email = email
+    # to_email = 'pathak.achal5@gmail.com'
     email = EmailMessage(
                 mail_subject, message, to=[to_email]
     )
