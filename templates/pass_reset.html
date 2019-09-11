@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>XYZ Company</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.css">
+</head>
+<body class="d-flex justify-content-center align-items-center">
+{% if result == 'error' %}
+<div class="alert alert-warning w-50 mt-4">
+  <h4 class="alert-heading">Error!</h4>
+  <p class="mb-0">Password reset link is invalid or has expired.</p>
+</div>
+{% elif result == 'show-form' %}
+<div class="alert alert-success w-50 w-lg-50 mt-4">
+  <form method="POST">
+    <h3>Change Password</h3>
+      <div class="form-group mt-3">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" class="form-control" value="xxx" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+      </div>
+      <button type="submit" class="btn btn-info w-100 my-3">Update Password</button>
+  </form>
+</div>
+{% elif result == 'show-form-missing' %}
+<div class="alert alert-success w-50 w-lg-50 mt-4">
+  <form method="POST">
+    <h3>Change Password</h3>
+      <div class="form-group mt-3">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" class="form-control" value="xxx" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+      </div>
+      <h5 style="color:#CC0000;">Error: Both the fields are required.<h5>
+      <button type="submit" class="btn btn-info w-100 my-3">Update Password</button>
+  </form>
+</div>
+{% elif result == 'show-form-nomatch' %}
+<div class="alert alert-success w-50 w-lg-50 mt-4">
+  <form method="POST">
+    <h3>Change Password</h3>
+      <div class="form-group mt-3">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+      </div>
+      <h5 style="color:#CC0000;">Error: Password and Confirm Password doesnt match.<h5>
+      <button type="submit" class="btn btn-info w-100 my-3">Update Password</button>
+  </form>
+</div>
+{% elif result == 'success-done' %}
+<div class="alert alert-success w-50 mt-4">
+  <h4 class="alert-heading">Success!</h4>
+  <p class="mb-0">Password has been successfully updated.</p>
+</div>
+{% endif %}
+</body>
+</html>

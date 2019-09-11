@@ -1,0 +1,64 @@
+Metadata-Version: 1.1
+Name: jwt-oauth
+Version: 1.0
+Summary: A simple Django app to handle oauth with JWT.
+Home-page: https://www.example.com/
+Author: Achal Pathak
+Author-email: pathak.achal5@gmail.com
+License: MIT License
+Description: =====
+        JWT-AUTH
+        =====
+        
+        JWT-AUTH is a simple Django app to achieve JWT Oauth in your Django Project.
+        
+        It includes the follwing urls:
+            url('^token/$', views.token),
+            url('^token/refresh/$', views.refresh_token),
+        
+        Detailed documentation is in the "docs" directory.
+        
+        Quick start
+        -----------
+        1. Install dependencies :
+        pip install djangorestframework
+        pip install jwt
+        
+        2. Add "polls" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+        		'rest_framework',
+                'jwt-auth',
+            ]
+        
+        2. Include the polls URLconf in your project urls.py like this::
+        
+            url(r'^auth/', include('jwt-auth.urls')),
+        	
+        3. Add following to the settings.py :
+        
+        AUTH_USER_MODEL = 'useraccounts.UsersModel'
+        
+        JWT_AUTH = {
+        
+            'JWT_SECRET': 'super-secret-key',
+            'JWT_ALGORITHM': 'HS256',
+        
+        }
+        
+        4. Run `python manage.py migrate` to create the authentication models.
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
